@@ -1,8 +1,8 @@
-import asyncio
+import asyncio, random
 from functools import wraps
-import kb
+import kb, images
 from aiogram import Bot, Dispatcher, Router, F
-from aiogram.types import Message, CallbackQuery
+from aiogram.types import Message, CallbackQuery, InputMediaPhoto
 
 router = Router()
 
@@ -42,8 +42,11 @@ async def cmd_start(message: Message):
 @dp.callback_query(F.data == 'big_button_1_pressed')
 @check_old_answer('big_button_1_pressed')
 async def process_button_1_press(callback: CallbackQuery):
+    random_images = random.sample(images.image_urls, 4)
+    media = [InputMediaPhoto(media=url) for url in random_images]
+    await callback.message.answer_media_group(media=media)
     await callback.message.answer(
-        text='Была нажата БОЛЬШАЯ КНОПКА 1', reply_markup=kb.keyboard2
+        text='Работа - хуй повешать на ворота', reply_markup=kb.keyboard2
         )
 
 
@@ -51,7 +54,7 @@ async def process_button_1_press(callback: CallbackQuery):
 @check_old_answer('big_button_2_pressed')
 async def process_button_2_press(callback: CallbackQuery):
     await callback.message.answer(
-        text='Была нажата БОЛЬШАЯ КНОПКА 2', reply_markup=kb.keyboard3
+        text='Ноготь не воробей - тоже пизды получит', reply_markup=kb.keyboard3
         )
 
 
