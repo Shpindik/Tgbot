@@ -1,4 +1,5 @@
-from aiogram.types import InlineKeyboardButton,  InlineKeyboardMarkup
+from aiogram.types import InlineKeyboardButton,  InlineKeyboardMarkup, WebAppInfo
+
 
 greet = 'Привет, {name}! Я бот Алёна. Делаю записи на маникюр ☺️'
 menu = '📍 Главное меню'
@@ -15,8 +16,8 @@ keyboard1 = InlineKeyboardMarkup(
                      [big_button_2],
                      [big_button_2_1]]
 )
-big_button_3 = InlineKeyboardButton(text='Смотреть порно', url='https://www.youtube.com/watch?v=ZVqRV5LwaRI', callback_data='big_button_3_pressed')
-big_button_4 = InlineKeyboardButton(text='Фирамир и азлагор(Пока не активно)', url='https://www.youtube.com/watch?v=ZVqRV5LwaRI', callback_data='big_button_4_pressed')
+big_button_3 = InlineKeyboardButton(text='Instagram', url='https://www.youtube.com/watch?v=ZVqRV5LwaRI', callback_data='big_button_3_pressed')
+big_button_4 = InlineKeyboardButton(text='Youtube', url='https://www.youtube.com/watch?v=ZVqRV5LwaRI', callback_data='big_button_4_pressed')
 
 keyboard2 = InlineKeyboardMarkup(
     inline_keyboard=[[big_button_3],
@@ -24,8 +25,8 @@ keyboard2 = InlineKeyboardMarkup(
                      [back]]
 )
 
-big_button_5 = InlineKeyboardButton(text='БОЯРЕ', callback_data='big_button_5_pressed')
-big_button_6 = InlineKeyboardButton(text='Записаться через Дикиди', url='https://dikidi.ru/1295192', callback_data='big_button_6_pressed')
+big_button_5 = InlineKeyboardButton(text='БОЯРЕ(В работе)', callback_data='big_button_5_pressed')
+big_button_6 = InlineKeyboardButton(text='Записаться через Дикиди', web_app=WebAppInfo(url='https://dikidi.ru/1295192'))
 
 keyboard3 = InlineKeyboardMarkup(
     inline_keyboard=[[big_button_5],

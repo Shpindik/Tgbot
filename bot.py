@@ -78,5 +78,11 @@ async def process_button_2_1_press(callback: CallbackQuery):
         )
 
 
+@dp.callback_query(F.data == 'big_button_5_pressed')
+@check_old_answer('big_button_5_pressed')
+async def process_button_5_press(callback: CallbackQuery):
+    await callback.answer(text='В процессе')
+
+
 if __name__ == '__main__':
     asyncio.run(main())
