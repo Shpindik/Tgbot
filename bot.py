@@ -39,15 +39,23 @@ async def cmd_start(message: Message):
         )
 
 
+@dp.callback_query(F.data == 'back_to_start')
+async def process_back_to_start(callback: CallbackQuery):
+    await callback.message.edit_text(
+        kb.greet.format(name=callback.from_user.first_name),
+        reply_markup=kb.keyboard1
+    )
+
+
 @dp.callback_query(F.data == 'big_button_1_pressed')
 @check_old_answer('big_button_1_pressed')
 async def process_button_1_press(callback: CallbackQuery):
-    random_images = random.sample(images.image_urls, 4)
+    random_images = random.sample(images.image_urls_nails, 4)
     media = [InputMediaPhoto(media=url) for url in random_images]
     await callback.message.answer_media_group(media=media)
     await callback.message.answer(
         text='Работа - хуй повешать на ворота', reply_markup=kb.keyboard2
-        )
+    )
 
 
 @dp.callback_query(F.data == 'big_button_2_pressed')
@@ -55,6 +63,18 @@ async def process_button_1_press(callback: CallbackQuery):
 async def process_button_2_press(callback: CallbackQuery):
     await callback.message.answer(
         text='Ноготь не воробей - тоже пизды получит', reply_markup=kb.keyboard3
+        )
+
+
+@dp.callback_query(F.data == 'big_button_2_1_pressed')
+@check_old_answer('big_button_2_1_pressed')
+async def process_button_2_1_press(callback: CallbackQuery):
+    media = []
+    for i, url in enumerate(images.image_urls_studio):
+        media.append(InputMediaPhoto(media=url, caption=f"Image {i+1}"))
+    await callback.message.answer_media_group(media=media)
+    await callback.message.answer(
+        kb.description, reply_markup=kb.keyboard4
         )
 
 
