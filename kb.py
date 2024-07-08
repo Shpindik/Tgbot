@@ -24,8 +24,8 @@ keyboard2 = InlineKeyboardMarkup(
                      [back]]
 )
 
-big_button_5 = InlineKeyboardButton(text='БОЛЬШАЯ КНОПКА 5', callback_data='big_button_5_pressed')
-big_button_6 = InlineKeyboardButton(text='БОЛЬШАЯ КНОПКА 6', callback_data='big_button_6_pressed')
+big_button_5 = InlineKeyboardButton(text='БОЯРЕ', callback_data='big_button_5_pressed')
+big_button_6 = InlineKeyboardButton(text='Записаться через Дикиди', url='https://dikidi.ru/1295192', callback_data='big_button_6_pressed')
 
 keyboard3 = InlineKeyboardMarkup(
     inline_keyboard=[[big_button_5],

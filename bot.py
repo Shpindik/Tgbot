@@ -61,7 +61,7 @@ async def process_button_1_press(callback: CallbackQuery):
 @dp.callback_query(F.data == 'big_button_2_pressed')
 @check_old_answer('big_button_2_pressed')
 async def process_button_2_press(callback: CallbackQuery):
-    await callback.message.answer(
+    await callback.message.edit_text(
         text='Ноготь не воробей - тоже пизды получит', reply_markup=kb.keyboard3
         )
 
